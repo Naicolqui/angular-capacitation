@@ -1,0 +1,17 @@
+<p-panel header="Pipes Numéricos" class="p-1">
+    <p>Pipes incluídos en Angular - Usualmente en el Common Module</p>
+</p-panel>
+
+<div class="grid">
+    <div class="col-4">
+        <p-card header="Ventas Netas" subheader="de los productos más vendidos">
+            {{ totalSales | number:'1.2-2' }} <!-- 2-2 es la cantidad de decimales que quiero luego de la coma-->
+        </p-card>
+    </div>
+
+    <div class="col-4">
+        <p-card header="Ganancias porcentual" subheader="de los productos más vendidos">
+            {{ percent | percent }} 
+        </p-card>
+    </div>
+</div>

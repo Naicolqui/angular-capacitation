@@ -1,0 +1,64 @@
+<p-panel header="Pipes no tan comunes" class="p-1">
+  <p>Pipes incluídos en Angular - Usualmente en el Common Module</p>
+</p-panel>
+
+<div class="grid">
+  <div class="col-6">
+    <p-fieldset legend="i18n Select Pipe" [toggleable]="true">
+        <p>Saludos {{name}}, es un placer 
+            {{gender | i18nSelect:invitationMap}}
+            a nuestro evento.
+        </p>
+
+        <p-button
+            (click)="changeClient()"
+            label="Cambiar Persona"/>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="i18n Plural Pipe" [toggleable]="true">
+        <p>Actualmente {{clients.length | i18nPlural:clientsMap}}</p>
+
+        <p-button
+            (click)="deleteClients()"
+            label="Eliminar Cliente"/>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Slice Pipe" [toggleable]="true">
+        <b>Original</b>
+        <pre>{{clients}}</pre>
+
+        <b>slice:0:2</b>
+        <pre>{{clients | slice:0:2}}</pre>
+        
+        <b>slice:1:2</b><!--Comienza en la pos 1 y finaliza en la 2 (no la incluye)-->
+        <pre>{{clients | slice:1:2}}</pre>
+
+        <b>slice:1:-2</b><!--Elimina de atrás para adelante-->
+        <pre>{{clients | slice:1:-2}}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Key Value Pipe" [toggleable]="true">
+        <ul>
+            <li *ngFor="let item of person | keyvalue">
+                <b>{{item.key |titlecase}}:</b> {{item.value}}
+            </li>
+        </ul>
+    </p-fieldset>
+  </div>
+
+  <div class="col-6">
+    <p-fieldset legend="Async Pipe" [toggleable]="true">
+        <span>Me suscribo automáticamente a través del async</span>
+        <pre>{{ myObservableTimer | async}}</pre>
+
+        <pre *ngIf="!(promiseValue|async)">Cargando...</pre>
+        <pre>{{promiseValue | async}}</pre>
+    </p-fieldset>
+  </div>
+</div>
