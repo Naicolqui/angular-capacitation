@@ -11,29 +11,46 @@ import { MenubarModule } from 'primeng/menubar';
 })
 export class MenuComponent
   implements OnInit {
-    public items: MenuItem[] | undefined;
+  public items: MenuItem[] | undefined;
 
-    constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
-    ngOnInit() {
-        this.items = [
-            { 
-              label: 'Pipes de Angular', 
-              icon: 'pi pi-desktop',
-              items: [
-                { label: 'Textos y Fechas', icon: 'pi pi-align-left', command: () => {
-                  this.router.navigate(['/']);
-              }},
-                { label: 'Números', icon: 'pi pi-dollar', command: () => {
-                  this.router.navigate(['/numbers']);}},
-                { label: 'No comunes', icon: 'pi pi-globe', command: () => {
-                  this.router.navigate(['/uncommon']);}}
-              ]
-            },
-            {
-              label: 'Pipes personalizados',
-              icon: 'pi pi-cog'
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Pipes de Angular',
+        icon: 'pi pi-desktop',
+        items: [
+          {
+            label: 'Textos y Fechas', icon: 'pi pi-align-left', command: () => {
+              this.router.navigate(['/']);
             }
-        ];
-    }
+          },
+          {
+            label: 'Números', icon: 'pi pi-dollar', command: () => {
+              this.router.navigate(['/numbers']);
+            }
+          },
+          {
+            label: 'No comunes', icon: 'pi pi-globe', command: () => {
+              this.router.navigate(['/uncommon']);
+            }
+          }
+        ]
+      },
+      {
+        label: 'Pipes personalizados',
+        icon: 'pi pi-cog',
+        items: [
+          {
+            label: 'Custom Pipes',
+            icon: 'pi pi-cog',
+            command: () => {
+              this.router.navigate(['/custom']);
+            }
+          }
+        ]
+      }
+    ];
+  }
 }
